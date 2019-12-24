@@ -9,14 +9,18 @@ import java.util.stream.Collectors;
 
 public class EmployeeService {
 
+  private EmployeeDao employeeDao = new EmployeeDao();
+
   public List<Employee> getAdultEmployees() {
-    EmployeeDao employeeDao = new EmployeeDao();
-    List<Employee> allEmployees = employeeDao.getAllEmployees();
-    List<Employee> adultEmployees = allEmployees.stream()
+    return getAllEmployees().stream()
         .filter(Employee::isAdult)
         .sorted(Comparator.comparing(Employee::getName).reversed())
         .peek(employee -> employee.setName(employee.getName().toUpperCase()))
         .collect(Collectors.toList());
-    return adultEmployees;
   }
+
+  private List<Employee> getAllEmployees() {
+    return employeeDao.getAllEmployees();
+  }
+
 }
