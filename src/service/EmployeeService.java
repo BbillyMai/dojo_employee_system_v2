@@ -15,6 +15,7 @@ public class EmployeeService {
     List<Employee> adultEmployees = allEmployees.stream()
         .filter(Employee::isAdult)
         .sorted(Comparator.comparing(Employee::getName))
+        .peek(employee -> employee.setName(employee.getName().toUpperCase()))
         .collect(Collectors.toList());
     return adultEmployees;
   }

@@ -25,8 +25,7 @@ public class EmployeeServiceTest {
     EmployeeService employeeService = new EmployeeService();
     List<Employee> adultEmployees = employeeService.getAdultEmployees();
 
-    assertEquals("Mike", adultEmployees.get(0).getName());
-    assertEquals("Sepp", adultEmployees.get(1).getName());
+    assertTrue(adultEmployees.get(0).getName().compareTo(adultEmployees.get(1).getName()) < 0);
   }
 
   @Test
