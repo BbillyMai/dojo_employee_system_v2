@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 
 public class EmployeeServiceTest {
 
-  EmployeeService employeeService;
+  private EmployeeService employeeService;
 
   @Before
   public void setUp() throws Exception {
@@ -31,7 +31,10 @@ public class EmployeeServiceTest {
   public void should_return_adult_employees_sorted_by_name_desc_when_invoke_getAdultEmployees() {
     List<Employee> adultEmployees = employeeService.getAdultEmployees();
 
-    assertTrue(adultEmployees.get(0).getName().compareTo(adultEmployees.get(1).getName()) > 0);
+    String firstEmployeeName = adultEmployees.get(0).getName();
+    String secondEmployeeName = adultEmployees.get(1).getName();
+    boolean isNameSortDesc = firstEmployeeName.compareTo(secondEmployeeName) > 0;
+    assertTrue(isNameSortDesc);
   }
 
   @Test
