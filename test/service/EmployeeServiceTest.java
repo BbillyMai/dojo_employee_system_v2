@@ -20,4 +20,12 @@ public class EmployeeServiceTest {
     assertTrue(adultEmployees.get(1).getAge() >= 18);
   }
 
+  @Test
+  public void should_return_adult_employees_sorted_by_name_when_invoke_getAdultEmployees() {
+    EmployeeService employeeService = new EmployeeService();
+    List<Employee> adultEmployees = employeeService.getAdultEmployees();
+
+    assertEquals("Mike", adultEmployees.get(0).getName());
+    assertEquals("Sepp", adultEmployees.get(1).getName());
+  }
 }
