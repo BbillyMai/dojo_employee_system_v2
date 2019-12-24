@@ -10,6 +10,10 @@ public class Employee {
     this.age = age;
   }
 
+  public boolean isAdult() {
+    return age >= 18;
+  }
+
   public String getName() {
     return name;
   }

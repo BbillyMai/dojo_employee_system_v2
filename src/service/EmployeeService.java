@@ -13,7 +13,7 @@ public class EmployeeService {
     EmployeeDao employeeDao = new EmployeeDao();
     List<Employee> allEmployees = employeeDao.getAllEmployees();
     List<Employee> adultEmployees = allEmployees.stream()
-        .filter(employee -> employee.getAge() >= 18)
+        .filter(Employee::isAdult)
         .sorted(Comparator.comparing(Employee::getName))
         .collect(Collectors.toList());
     return adultEmployees;
