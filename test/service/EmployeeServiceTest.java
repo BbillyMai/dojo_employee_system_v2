@@ -16,8 +16,8 @@ public class EmployeeServiceTest {
     List<Employee> adultEmployees = employeeService.getAdultEmployees();
 
     assertEquals(2, adultEmployees.size());
-    assertTrue(adultEmployees.get(0).getAge() >= 18);
-    assertTrue(adultEmployees.get(1).getAge() >= 18);
+    assertTrue(adultEmployees.get(0).isAdult());
+    assertTrue(adultEmployees.get(1).isAdult());
   }
 
   @Test
@@ -33,7 +33,7 @@ public class EmployeeServiceTest {
     EmployeeService employeeService = new EmployeeService();
     List<Employee> adultEmployees = employeeService.getAdultEmployees();
 
-    assertEquals("MIKE", adultEmployees.get(0).getName());
-    assertEquals("SEPP", adultEmployees.get(1).getName());
+    assertTrue(adultEmployees.get(0).getName().matches("[A-Z]+"));
+    assertTrue(adultEmployees.get(1).getName().matches("[A-Z]+"));
   }
 }
