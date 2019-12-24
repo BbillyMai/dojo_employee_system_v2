@@ -28,10 +28,10 @@ public class EmployeeServiceTest {
   }
 
   @Test
-  public void should_return_adult_employees_sorted_by_name_when_invoke_getAdultEmployees() {
+  public void should_return_adult_employees_sorted_by_name_desc_when_invoke_getAdultEmployees() {
     List<Employee> adultEmployees = employeeService.getAdultEmployees();
 
-    assertTrue(adultEmployees.get(0).getName().compareTo(adultEmployees.get(1).getName()) < 0);
+    assertTrue(adultEmployees.get(0).getName().compareTo(adultEmployees.get(1).getName()) > 0);
   }
 
   @Test
