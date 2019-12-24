@@ -28,4 +28,13 @@ public class EmployeeServiceTest {
     assertEquals("Mike", adultEmployees.get(0).getName());
     assertEquals("Sepp", adultEmployees.get(1).getName());
   }
+
+  @Test
+  public void should_return_adult_employees_name_is_capitalized_when_invoke_getAdultEmployees() {
+    EmployeeService employeeService = new EmployeeService();
+    List<Employee> adultEmployees = employeeService.getAdultEmployees();
+
+    assertEquals("MIKE", adultEmployees.get(0).getName());
+    assertEquals("SEPP", adultEmployees.get(1).getName());
+  }
 }
